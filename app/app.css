@@ -1,25 +1,5 @@
-/* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
+#mainContainer{border:solid 1px red;}
+#mainContainer #title{width:900px;height:68px;border-bottom: solid 1px #E4E4E4;margin:0 auto;background-color: #FAFAFA;}
+#mainContainer #title #text{color:#919A9F;line-height: 68px;text-align: center;padding:0px;}
+#mainContainer #content{width:715px;margin:0 auto;}

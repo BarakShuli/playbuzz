@@ -16,9 +16,10 @@
 
     function indexController($http) {
         var vm = this;
+        var cdnUrl = 'http://localhost:8080/getVideoFeed';
         vm.x = "{datalisy:{a:1,b:2}}";
         vm.getVideoFeedList = function($http, vm){
-            return $http.get('http://localhost:8080/getVideoFeed')
+            return $http.get(cdnUrl)
                 .then(function(response) {
                     vm.dataList = response.data;
                 });   
