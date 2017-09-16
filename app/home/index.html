@@ -3,7 +3,7 @@
         <p id="text">VIDEO FEED</p>
         <select ng-model="vm.ddlVideoTypes" 
             ng-options="selected.Name as selected.Name for selected in vm.arrList track by selected.Name"
-            ng-change="vm.GetValue()">
+            ng-change="vm.getSelectedValue()">
         </select>
     </div>
     <div id="content">
