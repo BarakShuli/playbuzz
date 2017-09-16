@@ -19,9 +19,7 @@
         }
 
         vm.$onChanges = function (changesObj) {
-            if (changesObj.list) {
-                console.log("onChanges--> ", changesObj.list);
-            }
+            console.log("onChanges1--> ", changesObj.list);
         };
     }
 })();

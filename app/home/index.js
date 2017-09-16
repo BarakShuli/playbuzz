@@ -12,9 +12,9 @@
         }])
         .controller('indexController', indexController);
 
-    indexController.$inject = ['$http']
+    indexController.$inject = ['$http', 'videoFeedService']
 
-    function indexController($http) {
+    function indexController($http, videoFeedService) {
         var vm = this;
         vm.selectedName = "";
         vm.arrList = [{
