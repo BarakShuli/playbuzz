@@ -1,5 +1,11 @@
 <div id="mainContainer">
-    <div id="title"><p id="text">VIDEO FEED</p></div>
+    <div id="title">
+        <p id="text">VIDEO FEED</p>
+        <select ng-model="vm.ddlVideoTypes" 
+            ng-options="selected.Name as selected.Name for selected in vm.arrList track by selected.Name"
+            ng-change="vm.GetValue()">
+        </select>
+    </div>
     <div id="content">
         <video-player list="vm.dataList"></video-player>
     </div>

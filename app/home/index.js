@@ -16,14 +16,29 @@
 
     function indexController($http) {
         var vm = this;
+        vm.selectedName = "";
+        vm.arrList = [{
+                Id: 1,
+                Name: 'All'
+            }, {
+                Id: 2,
+                Name: 'FB'
+            }, {
+                Id: 3,
+                Name: 'Youtube'
+            }];
         var cdnUrl = 'http://localhost:8080/getVideoFeed';
-        vm.x = "{datalisy:{a:1,b:2}}";
         vm.getVideoFeedList = function($http, vm){
-            return $http.get(cdnUrl)
+            return $http.get(cdnUrl, {params:{key:vm.ddlVideoTypes}})
                 .then(function(response) {
                     vm.dataList = response.data;
                 });   
         }
         vm.getVideoFeedList($http, vm);
+
+        vm.GetValue = function(){
+            console.log(vm.ddlVideoTypes);
+            vm.getVideoFeedList($http, vm);
+        }
     }
 })();

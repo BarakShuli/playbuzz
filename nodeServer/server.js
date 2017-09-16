@@ -15,6 +15,8 @@ app.use(express.static(path.join(__dirname, '../app')));
 
 
 app.get('/getVideoFeed', function(req, res){
+    var searchValueQuery = req.query.key;
+    console.log("searchValueQuery--> ",  searchValueQuery);
     request('https://cdn.playbuzz.com/content/feed/items', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       res.send(body)
