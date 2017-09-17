@@ -20,11 +20,6 @@
             vm.videoList = vm.list;
         }
 
-        vm.$onChanges = function(){
-            console.log("sadsd");
-            vm.videoList = vm.list;
-        }
-
         vm.getVideoUrl = function(baseUrl, sourceId){
             var html = [];
             html.push(baseUrl);
