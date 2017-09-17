@@ -7,6 +7,9 @@
         </select>
     </div>
     <div id="content">
-        <video-player list="vm.dataList"></video-player>
+        <div ng-if="vm.isDataAvailable">
+            
+            <video-player list="vm.dataList"></video-player>
+        </div>
     </div>
 </div>

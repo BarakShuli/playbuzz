@@ -12,15 +12,30 @@
             controllerAs: "vm"
             });
 
-    function videoPlayerController() {
+    videoPlayerController.$inject = ['$compile', '$scope', '$sce'];
+
+    function videoPlayerController($compile, $scope, $sce) {
         var vm  = this;
         vm.$onInit = function(){
-            console.log("componentsd222--> ", vm.list);
+            vm.videoList = vm.list;
         }
 
-        vm.$onChanges = function (changesObj) {
-            console.log("onChanges1--> ", changesObj.list);
-        };
+        vm.$onChanges = function(){
+            console.log("sadsd");
+            vm.videoList = vm.list;
+        }
+
+        vm.getVideoUrl = function(baseUrl, sourceId){
+            var html = [];
+            html.push(baseUrl);
+            html.push(sourceId);
+            return html.join("").toString();
+        }
+
+        vm.trustSrc = function(baseUrl, sourceId) {
+            var src = vm.getVideoUrl(baseUrl, sourceId);
+            return $sce.trustAsResourceUrl(src);
+        }
     }
 })();
 

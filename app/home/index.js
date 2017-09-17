@@ -12,14 +12,25 @@
         }])
         .controller('indexController', indexController);
 
-    indexController.$inject = ['$http', 'videoFeedService']
+    indexController.$inject = ['$http', '$scope', 'videoFeedService']
 
-    function indexController($http, videoFeedService) {
+    function indexController($http, $scope, videoFeedService) {
         var vm = this;
-        vm.arrList = [{Id: 1,Name: 'All'}, {Id: 2,Name: 'FB'}, {Id: 3,Name: 'Youtube'}];
-        videoFeedService.getVideoFeedList($http, vm);
+        vm.arrList = [{Id: 1,Name: 'all'}, {Id: 2,Name: 'facebook'}, {Id: 3,Name: 'youtube'}];
+        var promiseObj = videoFeedService.getVideoFeedList($http, vm);
+        promiseObj.then(function(result){
+            vm.isDataAvailable = true;
+            vm.dataList = result;
+        })
+
         vm.getSelectedValue = function(){
-            videoFeedService.getVideoFeedList($http, vm);
+            var promiseObj = videoFeedService.getVideoFeedList($http, vm);
+            promiseObj.then(function(result){
+                vm.isDataAvailable = true;
+                vm.dataList = result;
+                console.log("vm.dataList--> ", vm.dataList);
+                console.log("vm.ddlVideoTypes--> ", vm.ddlVideoTypes);
+            })
         }
     }
 })();
